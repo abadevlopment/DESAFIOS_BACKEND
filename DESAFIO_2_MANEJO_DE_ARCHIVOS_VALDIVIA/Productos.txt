@@ -1,0 +1,21 @@
+[
+  
+ {
+   "title": "Pan",
+   "price": 25.45,
+   "thumbnail": "url1",
+   "id": 1
+ },
+ {
+   "title": "Aceite",
+   "price": 74.56,
+   "thumbnail": "url2",
+   "id": 2
+ },
+ {
+   "title": "Azucar",
+   "price": 45.67,
+   "thumbnail": "url3",
+   "id": 3
+ }
+]
