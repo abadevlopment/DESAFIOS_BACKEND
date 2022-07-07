@@ -1,0 +1,52 @@
+[
+  {
+    "nombre": "producto cambiado",
+    "descripcion": "descripcion producto cambiado",
+    "codigo": "codigop1 cambiado",
+    "foto": "https://cdn-icons-png.flaticon.com/512/1257/1257627.png?w=740",
+    "precio": 654,
+    "stock": 55,
+    "timestamp": "Tue Jul 05 2022 21:34:42 GMT-0500 (Peru Standard Time)",
+    "id": 2
+  },
+  {
+    "nombre": "producto 1",
+    "descripcion": "descripcion producto 1",
+    "codigo": "codigop1",
+    "foto": "https://cdn-icons-png.flaticon.com/512/1257/1257627.png?w=740",
+    "precio": 654,
+    "stock": 55,
+    "timestamp": "Tue Jul 05 2022 21:47:42 GMT-0500 (Peru Standard Time)",
+    "id": 3
+  },
+  {
+    "nombre": "producto 1",
+    "descripcion": "descripcion producto 1",
+    "codigo": "codigop1",
+    "foto": "https://cdn-icons-png.flaticon.com/512/1257/1257627.png?w=740",
+    "precio": 654,
+    "stock": 55,
+    "timestamp": "Tue Jul 05 2022 21:47:43 GMT-0500 (Peru Standard Time)",
+    "id": 4
+  },
+  {
+    "nombre": "producto 1",
+    "descripcion": "descripcion producto 1",
+    "codigo": "codigop1",
+    "foto": "https://cdn-icons-png.flaticon.com/512/1257/1257627.png?w=740",
+    "precio": 654,
+    "stock": 55,
+    "timestamp": "Tue Jul 05 2022 21:47:44 GMT-0500 (Peru Standard Time)",
+    "id": 5
+  },
+  {
+    "nombre": "producto 1",
+    "descripcion": "descripcion producto 1",
+    "codigo": "codigop1",
+    "foto": "https://cdn-icons-png.flaticon.com/512/1257/1257627.png?w=740",
+    "precio": 654,
+    "stock": 55,
+    "timestamp": "Tue Jul 05 2022 21:56:20 GMT-0500 (Peru Standard Time)",
+    "id": 6
+  }
+]

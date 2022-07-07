@@ -1,6 +1,8 @@
 const express = require('express')
 const { Router } = express
+
 const productos = require('./api/products')
+const prod = new productos (ArrayProductos)
 
 const router = Router()
 
@@ -25,7 +27,6 @@ const ArrayProductos = [
       }
 ]
 
-const prod = new productos (ArrayProductos)
 
 router.get('', (req, res) => {
     prod.getAll().then(resp => res.send(resp))
