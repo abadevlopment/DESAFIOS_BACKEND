@@ -1,10 +1,10 @@
-const CarritoArchivo = require('./carritos/CarritoArchivo')
-const CarritoMemoria = require('./carritos/CarritoMemoria')
+const CarritoArchivo = require('./carritos/CarritoArchivo.js')
+const CarritoMemoria = require('./carritos/CarritoMemoria.js')
 
 
 
-const ProductoArchivo = require('./carritos/ProductoArchivo')
-const ProductoMemoria = require('./carritos/ProductoMemoria')
+const ProductoArchivo = require('./carritos/ProductoArchivo.js')
+const ProductoMemoria = require('./carritos/ProductoMemoria.js')
 
 
 

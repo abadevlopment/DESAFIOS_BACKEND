@@ -16,13 +16,15 @@ class ContenedorMemoria {
     }
 
     getById(id) {
-        const result = this.arrayProd.find(res => res.id === id)
+        const Id = parseInt(id)
+        const result = this.arrayProd.find(res => res.id === Id)
         return result || { error: 'id no encontrado'}
     }
     
     updateById(product, id) {
-        const prodUpdate = { id: Number(id), ...product }
-        const index = this.arrayProd.findIndex(res => res.id === id)
+        const Id = parseInt(id)
+        const prodUpdate = { id: Number(Id), ...product }
+        const index = this.arrayProd.findIndex(res => res.id === Id)
         if (index !== -1) {
             this.arrayProd[index] = prodUpdate
             return prodUpdate
@@ -32,7 +34,8 @@ class ContenedorMemoria {
     }
 
     deleteById(id) {
-        const index = this.arrayProd.findIndex(res => res.id === id)
+        const Id = parseInt(id)
+        const index = this.arrayProd.findIndex(res => res.id === Id)
         if (index !== -1) {
             const deleteProd = this.arrayProd.splice(index, 1)
             return deleteProd
@@ -41,25 +44,38 @@ class ContenedorMemoria {
         }
     }
 
-    deleteAll() {
-        return this.arrayProd = []
-    }
+    // deleteAll() {
+    //     return this.arrayProd = []
+    // }
 
     getAllCarts() {
         return [...this.arrayCart]
     }
 
     createCart() {
-        const carts = getAllCarts()
+        const carts = this.arrayCart
         const newId = carts.length == 0 ? 1 : carts[carts.length - 1 ].id + 1
         const time = Date(Date.now()).toString()
         const save = { productos: [], timestamp: time, id: newId}
         this.arrayCart.push(save)
+        return save
+    }
+
+    deleteByIdCart(id) {
+        const Id = parseInt(id)
+        const index = this.arrayCart.findIndex(res => res.id === Id)
+        if (index !== -1) {
+            const deleteProd = this.arrayCart.splice(index, 1)
+            return deleteProd
+        } else {
+            return { error: 'carrito no encontrado'}
+        }
     }
 
     getByIdProducts(id) {
-        const carts = getAllCarts()
-        const search = carts.find( res => res.id == id)
+        const Id = parseInt(id)
+        const carts = this.arrayCart
+        const search = carts.find( res => res.id == Id)
         const prods = search.productos
 
         if (prods.length > 0) {
@@ -70,21 +86,22 @@ class ContenedorMemoria {
     }
 
     saveByIdProduct(product, id) {
-        const carts = getAllCarts()
-        const index = carts.findIndex( res => res.id == id )
+        const Id = parseInt(id)
+        const carts = this.arrayCart
+        const index = carts.findIndex( res => res.id == Id )
         const saveIn = carts[index]
         const array = saveIn.productos
 
         if (index == -1) {
             return { error: `no se encontro el id: ${id}`}
-        }
+        } 
 
         array.push(product)
 
     }
 
     deleteByIdProduct(idCart, idProd) {
-        const carts = getAllCarts()
+        const carts = this.arrayCart
         const cartIndex = carts.findIndex( res => res.id == idCart)
         const prods = carts[cartIndex].productos
         const index = prods.findIndex( res => res.id == idProd)

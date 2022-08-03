@@ -1,0 +1,37 @@
+[
+  {
+    "productos": [
+      {
+        "Nombre": "producto1",
+        "Precio": 123,
+        "Url": "url1",
+        "timestamp": "Tue Aug 02 2022 22:59:06 GMT-0500 (Peru Standard Time)",
+        "id": 1
+      },
+      {
+        "Nombre": "producto1",
+        "Precio": 123,
+        "Url": "url1",
+        "timestamp": "Tue Aug 02 2022 22:59:08 GMT-0500 (Peru Standard Time)",
+        "id": 2
+      }
+    ],
+    "timestamp": "Tue Aug 02 2022 23:56:40 GMT-0500 (Peru Standard Time)",
+    "id": 1
+  },
+  {
+    "productos": [],
+    "timestamp": "Tue Aug 02 2022 23:56:42 GMT-0500 (Peru Standard Time)",
+    "id": 3
+  },
+  {
+    "productos": [],
+    "timestamp": "Tue Aug 02 2022 23:59:00 GMT-0500 (Peru Standard Time)",
+    "id": 4
+  },
+  {
+    "productos": [],
+    "timestamp": "Wed Aug 03 2022 00:01:34 GMT-0500 (Peru Standard Time)",
+    "id": 5
+  }
+]

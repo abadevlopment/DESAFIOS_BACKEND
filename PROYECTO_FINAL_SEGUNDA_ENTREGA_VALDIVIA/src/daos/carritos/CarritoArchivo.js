@@ -1,8 +1,8 @@
-const ContenedorArchivo = require('../../contenedores')
+const ContenedorArchivo = require('../../contenedores/index.js')
 
 class CarritoArchivo extends ContenedorArchivo {
-    constructor(){
-        super('carrito')
+    constructor(fileName){
+        super(fileName)
     }
 }
 

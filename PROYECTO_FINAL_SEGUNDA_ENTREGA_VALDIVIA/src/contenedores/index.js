@@ -1,7 +1,7 @@
-const ContenedorArchivo = require('./ContenedorArchivo')
-const ContenedorMemoria = require('./ContenedorMemoria')
-// const ContenedorFireBase = require('./ContenedorFirebase')
-// const ContenedorMongoDB = require('./ContenedorMongoDB')
+const ContenedorArchivo = require('./ContenedorArchivo.js')
+const ContenedorMemoria = require('./ContenedorMemoria.js')
+// const ContenedorFireBase = require('./ContenedorFirebase.js')
+// const ContenedorMongoDB = require('./ContenedorMongoDB.js')
 
 module.exports = {
     ContenedorArchivo,
