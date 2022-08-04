@@ -65,24 +65,6 @@ class ContenedorMongo {
         }
     }
 
-    // async updateById(product, id) {
-    //     const Id = parseInt(id)
-    //     const all = await this.getAll()
-    //     const index = all.findIndex(res => res.id === Id)
-    //     const data = all[index]
-    //     if (index == -1) {
-    //         return { error: `con se encontro el id ${id}`}
-    //     } else {
-    //         all[index] = { ...product, timestamp: data.timestamp, id: data.id}
-    //         try {
-    //             await fs.promises.writeFile(`${this.route}`, JSON.stringify(all, null, 2))
-    //             return all[index]
-    //         } catch (error) {
-    //             return {error: `${error}`}
-    //         }
-    //     }
-    // }
-
     async deleteById(id) {
         try {
             await this.collection.deleteOne({ IdProd: Number(id) })
@@ -91,7 +73,7 @@ class ContenedorMongo {
             return { error: `${error}` }
         }
     }
-
+// --------------------------------------------------
     async getAllCarts() {
         try {
             const all = await this.collection.find()
