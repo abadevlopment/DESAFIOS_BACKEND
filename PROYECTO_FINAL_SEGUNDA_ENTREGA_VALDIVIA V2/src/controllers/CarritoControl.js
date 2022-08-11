@@ -43,8 +43,8 @@ const ControladorCarrito = {
         try {
             const idCarro = req.params.id
             const idProd = req.params.id_prod
-            const productosId = await productoApi.getById(idProd)
-            const productoGuardado = await carritoApi.saveByIdProduct(productosId, idCarro)
+            const producto = await productoApi.getById(idProd)
+            const productoGuardado = await carritoApi.saveByIdProduct(producto, idCarro)
             res.json(productoGuardado)
         } catch (err) {
             console.log(err);

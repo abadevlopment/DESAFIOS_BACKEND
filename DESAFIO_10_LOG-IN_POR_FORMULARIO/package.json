@@ -12,8 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^7.3.0",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
     "express": "^4.18.1",
-    "handlebars": "^4.7.7",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
     "normalizr": "^3.6.2",
     "socket.io": "^4.5.1"
   }

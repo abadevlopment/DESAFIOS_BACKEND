@@ -20,8 +20,9 @@ socket.on('productos', productos => {
 })
 
 function vistaTabla(productos) {
-    return fetch('ListaProductos.hbs')
-        .then(res => res.text())
+    // return fetch('ListaProductos.hbs')
+    return fetch('public/ListaProductos.hbs')
+    .then(res => res.text())
         .then(resp => {
             const plantilla = Handlebars.compile(resp)
             // const html = plantilla({ productos })
@@ -46,16 +47,14 @@ imprimirMensajes.addEventListener('submit', e => {
         author: inputUsuario.value,
         message: inputMensaje.value
     }
-    // console.log(`log main js `);
-    // console.log(mensaje);
     socket.emit('mensajeNuevo', mensaje)
     imprimirMensajes.reset()
     inputMensaje.focus()
 })
 
 socket.on('mensajes', mensajes => {
-    console.log('mensaje llega al fromt:');
-    console.log(mensajes);
+    // console.log('mensaje llega al fromt:');
+    // console.log(mensajes);
     const html = contenedorMensajes(mensajes)
     document.getElementById('contenedorMensajes').innerHTML = html
 })
@@ -81,5 +80,42 @@ inputUsuario.addEventListener('input', () => {
 
 inputMensaje.addEventListener('input', () => {
     const mensaje = inputMensaje.value.length
-    botonMensaje.disabled = !mensaje 
+    botonMensaje.disabled = !mensaje
 })
+
+// USUARIO
+
+// const loginUser = document.getElementById('loginUser')
+// const botonLogin = document.getElementById('botonLogin')
+
+// const imprimirUsusario = document.getElementById('formLogin')
+// imprimirUsusario.addEventListener('submit', e => {
+//     e.preventDefault()
+
+//     const divUser = document.createElement('div')
+//     divUser.className = 'mb-3'
+//     divUser.id = 'usuarioLogueado'
+//     imprimirUsusario.replaceWith(divUser)
+
+//     document.getElementById('usuarioLogueado').innerHTML =
+//         `<div class="container-fluid" >
+//         <h1>Bienvenido ${loginUser.value}</h1>
+//         <form>
+//         <button type="submit" class="btn btn-warning" id="botonDesLogin">Desloguear</button>
+//         </form>
+//         </div>`
+//     // console.log(loginUser.value);
+//     imprimirUsusario.reset()
+// })
+
+// const formLogout = document.getElementById('formLogout')
+// formLogout.addEventListener('submit', e => {
+//     e.preventDefault()
+
+//     function reloadPage(){
+//         location.reload(true)
+//     }
+//     setTimeout(() => {
+//         reloadPage
+//     }, 5000);
+// })
