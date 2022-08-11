@@ -13,8 +13,10 @@ const datosFaker = require('./src/mocks')
 const { apiMessage } = require('./src/daos')
 
 // MONGO ATLAS
+require('dotenv').config()
 const MongoStore = require('connect-mongo')
 const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true }
+const URI = process.env.URI
 
 // MIDDLEWARES
 app.use(express.json())
@@ -35,7 +37,7 @@ app.use(cookieParser('secret'))
 app.use(session({
 
     store: MongoStore.create({
-        mongoUrl: "mongodb+srv://Manuel:Manuel@cluster0.szoogxy.mongodb.net/?retryWrites=true&w=majority",
+        mongoUrl: URI,
         mongoOptions: advancedOptions,
     }),
 
