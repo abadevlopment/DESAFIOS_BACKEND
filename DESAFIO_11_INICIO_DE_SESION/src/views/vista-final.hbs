@@ -1,0 +1,114 @@
+<div class="container text-center my-2">
+	<div class="jumbotron" style="background-color: gray;color: white;">
+		<br>
+		{{!-- <h1>USUARIO LOGUEADO</h1> --}}
+		<h2><i>Bienvenido {{datos.username}}</i></h2>
+		<button
+			class="btn btn-danger my-3"
+			onclick="location.href='/logout'"
+		>LOGOUT</button>
+	</div>
+</div>
+
+<!-- FORMULARIO DE INGRESO -->
+<div class="container">
+	<br />
+	<h1>Ingreso de productos</h1>
+	<br />
+	<!-- <form method="POST" action="/productos"> -->
+	<form id="agregarProducto">
+		<div class="mb-3">
+			<label for="title" class="form-label">Nombre del producto: </label>
+			<input
+				disabled
+				type="text"
+				class="form-control"
+				id="title"
+				name="title"
+				required
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="price" class="form-label">Precio: </label>
+			<input
+				disabled
+				type="number"
+				class="form-control"
+				id="price"
+				name="price"
+				required
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="img" class="form-label">Imagen: </label>
+			<input
+				disabled
+				type="url"
+				class="form-control"
+				id="picture"
+				name="thumbnail"
+				required
+			/>
+		</div>
+		<input type="submit" value="Guardar" disabled />
+		<!-- <button type="submit" class="btn btn-primary">Guardar</button> -->
+	</form>
+</div>
+<!-- TABLA DE PRODUCTOS -->
+<div class="container" id="listadoProductos">
+	<br />
+	<h1>Listado de productos</h1>
+	<br />
+</div>
+<br />
+<br />
+<!-- MENSAJES -->
+<div class="container-md bg-light border border-danger" id="centroMensajes">
+	<br />
+	<h1>Mensajes</h1>
+	<br />
+	<!-- id correo -->
+	<div class="input-group mb-3">
+		<input
+			type="text"
+			id="inputUser"
+			class="form-control"
+			placeholder="Ingresa tu correo"
+			aria-label="Recipient's username"
+			aria-describedby="emailHelp"
+		/>
+		<div id="emailHelp" class="form-text">
+			Debes ingresar tu correo para enviar mensajes
+		</div>
+	</div>
+	<hr />
+	<!-- contenedor mensajes -->
+	<div id="contenedorMensajes"></div>
+	<hr />
+	<!-- input mensajes -->
+	<form id="formMensajes">
+		<div class="mb-3">
+			<label for="inputMensaje" class="form-label">Ingresar mensaje:</label>
+			<input
+				disabled
+				type="text"
+				class="form-control"
+				id="inputMensaje"
+			/>
+		</div>
+		<button disabled type="submit" id="botonEnvio" class="btn btn-primary">
+			Enviar
+		</button>
+		<br />
+		<br />
+	</form>
+</div>
+<br />
+<br />
+<br />
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+	crossorigin="anonymous"
+></script>
+<script src="main.js"></script>

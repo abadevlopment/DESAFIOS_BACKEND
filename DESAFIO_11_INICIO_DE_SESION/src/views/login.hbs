@@ -1,0 +1,51 @@
+<div class="container my-5">
+	<div class="jumbotron">
+		<h1>INICIAR SESION</h1>
+		<br />
+		<form
+			class="form"
+			action="/login"
+			method="post"
+			role="form"
+			autocomplete="off"
+		>
+			<div class="form-group">
+				<input
+					id="correo"
+					name="username"
+					placeholder="correo"
+					class="form-control"
+					type="email"
+					autofocus
+					required
+				/>
+			</div>
+
+			<div class="form-group">
+				<input
+					id="password"
+					name="password"
+					placeholder="password"
+					class="form-control"
+					type="password"
+					required
+				/>
+			</div>
+
+			<div class="form-group">
+				<input
+					class="btn btn-success my-3"
+					type="submit"
+					value="Iniciar Sesión"
+				/>
+			</div>
+		</form>
+		<hr />
+		<div class="text-left">
+			<button
+				class="btn btn-warning my-3"
+				onclick="location.href = '/register'"
+			>Registrarse</button>
+		</div>
+	</div>
+</div>
