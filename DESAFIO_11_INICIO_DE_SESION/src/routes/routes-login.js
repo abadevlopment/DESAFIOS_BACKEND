@@ -5,8 +5,11 @@ const mongoose = require("mongoose")
 const UserDB = require("../models/user.js")
 const bcrypt = require("bcrypt")
 
-require("dotenv").config()
-const URI = process.env.URI
+// require("dotenv").config()
+// const URI = process.env.URI
+
+const { URI } = require('../config')
+
 
 // MONGOOSE
 

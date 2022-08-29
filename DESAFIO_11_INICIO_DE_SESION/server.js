@@ -5,7 +5,7 @@ const { Server: IOServer } = require("socket.io")
 const app = express()
 const httpServer = new HttpServer(app)
 const io = new IOServer(httpServer)
-const {routerLogin} = require("./src/routes")
+const { routerLogin } = require("./src/routes")
 // VISTAS ----------------------
 const path = require("path")
 const handlebars = require("express-handlebars")
@@ -25,9 +25,11 @@ const bcrypt = require("bcrypt")
 const datosFaker = require("./src/mocks")
 // APIS ----------------------
 const { apiMessage } = require("./src/daos")
-// ENV ----------------------
-require("dotenv").config()
-const URI = process.env.URI
+// // ENV ----------------------
+// require("dotenv").config()
+// const URI = process.env.URI
+// CONFIG ----------------------
+const { URI } = require('./src/config')
 
 //------------------- MIDDLEWARES -------------------//
 
