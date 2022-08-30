@@ -5,7 +5,8 @@ const { Server: IOServer } = require("socket.io")
 const app = express()
 const httpServer = new HttpServer(app)
 const io = new IOServer(httpServer)
-const { routerLogin } = require("./src/routes")
+const { routerLogin, routerProcess, routerFork } = require("./src/routes")
+const { fork } = require("child_process")
 // VISTAS ----------------------
 const path = require("path")
 const handlebars = require("express-handlebars")
@@ -25,22 +26,8 @@ const bcrypt = require("bcrypt")
 const datosFaker = require("./src/mocks")
 // APIS ----------------------
 const { apiMessage } = require("./src/daos")
-// // ENV ----------------------
-// require("dotenv").config()
-// const URI = process.env.URI
 // CONFIG ----------------------
-const { URI } = require('./src/config')
-
-
-// // TEST
-// console.log('test process');
-// console.log(process.argv);
-// console.log(process.platform);
-// console.log(process.versions.node);
-// console.log(process.memoryUsage.rss());
-// console.log(process.execPath);
-// console.log(process.pid);
-// console.log(process.cwd());
+const { URI } = require("./src/config")
 
 
 //------------------- MIDDLEWARES -------------------//
@@ -106,6 +93,8 @@ passport.deserializeUser(async (id, done) => {
 // RUTAS
 
 app.use("/", routerLogin)
+app.use("/info", routerProcess)
+app.use("/api/randoms", routerFork)
 
 // SOCKET
 
@@ -133,16 +122,21 @@ io.on("connection", async (socket) => {
     )
 })
 
+// MINIMIST
+const minimist = require("minimist")
+const PORTminimist = (minimist(process.argv.slice(2), { alias: { p: "port" } }))
 
 // PORT
-
-const PORT = 8080 || process.env.PORT
+const PORT = PORTminimist.port || 8080
+// const PORT = 8080 || process.env.PORT
 
 const server = httpServer.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto ${server.address().port}`)
+    console.log('http://localhost:' + server.address().port)
 })
 server.on("error", error => console.log(`Error en servidor ${error}`))
+
 // const server = app.listen(PORT, () => {
-//     console.log(`Servidor escuchando en el puerto ${server.address().port}`)
+    //     console.log(`Servidor escuchando en el puerto ${server.address().port}`)
 // })
 // server.on("error", error => console.log(`Error en servidor ${error}`))
