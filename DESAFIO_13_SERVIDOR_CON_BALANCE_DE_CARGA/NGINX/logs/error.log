@@ -1,0 +1,20 @@
+2022/09/06 19:06:32 [notice] 20872#2248: signal process started
+2022/09/06 19:06:32 [error] 20872#2248: OpenEvent("Global\ngx_stop_10080") failed (5: Access is denied)
+2022/09/06 19:07:26 [notice] 4976#5028: signal process started
+2022/09/06 19:07:26 [error] 4976#5028: OpenEvent("Global\ngx_stop_10080") failed (5: Access is denied)
+2022/09/06 19:10:08 [notice] 11000#19580: signal process started
+2022/09/06 19:10:41 [notice] 16900#2480: signal process started
+2022/09/06 19:37:12 [notice] 11592#10304: signal process started
+2022/09/06 19:46:48 [notice] 20512#2796: signal process started
+2022/09/06 21:38:56 [error] 1224#2680: *46 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8081/datos/", host: "localhost:8080"
+2022/09/06 21:40:03 [notice] 8528#9420: signal process started
+2022/09/06 21:40:25 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8082/api/randoms/", host: "localhost:8080"
+2022/09/06 21:40:27 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8083/api/randoms/", host: "localhost:8080"
+2022/09/06 21:40:29 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8084/api/randoms/", host: "localhost:8080"
+2022/09/06 21:40:31 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8085/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:13 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8085/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:15 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8084/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:43 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8085/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:48 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8084/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:58 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8085/api/randoms/", host: "localhost:8080"
+2022/09/06 21:43:13 [notice] 9660#1440: signal process started
