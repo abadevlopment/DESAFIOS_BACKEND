@@ -1,0 +1,69 @@
+<div class="container-fluid p-3 bg-secondary">
+	<div
+		class="px-5 py-3 bg-light rounded-5 text-center border border-primary"
+	>
+		<h3>Carrito de compras</h3>
+	</div>
+	<div class="p-5 bg-light rounded-5">
+		<div class="container-fluid p-5 bg-primary rounded-5 row">
+			{{#if ProductsQty}}
+				<table class="table">
+					<thead>
+						<tr>
+							<th
+								scope="col"
+							>Nombre</th>
+							<th
+								scope="col"
+							>Precio</th>
+							<th
+								scope="col"
+							>Imagen</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each Products}}
+							<tr>
+								<td
+								>{{this.title}}</td>
+								<td
+								>S/.{{this.price}}</td>
+								<td>
+									<img
+										height="50px"
+										src={{this.thumbnail}}
+										alt="img product"
+									/>
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+				<form
+					class="form"
+					action="/cart/buyOut"
+					method="post"
+					role="form"
+					autocomplete="off"
+				>
+					<div class="form-group px-5 mx-5 my-1">
+						<input
+							class="btn btn-success my-3"
+							type="submit"
+							value="REGISTRAR COMPRA"
+						/>
+					</div>
+					<div class="form-group px-5 mx-5 my-1">
+						<button
+							class="btn btn-light my-3"
+							onclick="location.href = '/home'"
+						>Regresar</button>
+					</div>
+				</form>
+			{{else}}
+				<h2 class="text-red">No se encontraron productos</h2>
+			{{/if}}
+			<hr />
+		</div>
+	</div>
+</div>
