@@ -66,20 +66,26 @@
 				</div>
 				<div class="form-group px-5 mx-5 my-1">
 					<input
-						id="telefono"
+						id="phone"
 						name="phone"
-						placeholder="teléfono"
 						class="form-control"
 						type="tel"
 						required
 					/>
+					<input type="hidden" name="full_phone">
 				</div>
 				<div class="form-group px-5 mx-5 my-1">
-					<input
+					{{! <input
 						class="btn btn-success my-3"
 						type="submit"
 						value="Registrarse"
-					/>
+					/> }}
+					<button
+						id="botonSubmit"
+						class="btn btn-success my-3"
+						type="submit"
+					>Registrarse
+					</button>
 				</div>
 				{{! <div class="form-group px-5 mx-5 my-1">
 					<button

@@ -60,7 +60,8 @@ routerLogin.get("/register", (req, res) => {
 
 routerLogin.post("/register", (req, res) => {
     logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
-    const { username, password, name, adress, age, phone } = req.body
+    const { username, password, name, adress, age } = req.body
+    const fullPhone = req.body.full_phone[0]
     UserDB.findOne({ username }, async (err, user) => {
         if (err) logger.error(err)
         // if (err) console.log(err)
@@ -73,7 +74,7 @@ routerLogin.post("/register", (req, res) => {
                 name,
                 adress,
                 age,
-                phone
+                phone: fullPhone
             })
             await newUser.save()
             res.redirect("/login")

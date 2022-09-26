@@ -23,7 +23,7 @@ const { Strategy } = require("passport-local")
 const LocalStrategy = Strategy
 const bcrypt = require("bcrypt")
 // CONFIG ----------------------
-const { URI, CLUSTER } = require("./src/config")
+const { URI, CLUSTER, MAIL } = require("./src/config")
 // LOGS
 const logger = require("./src/logs/logger.js")
 
@@ -112,8 +112,8 @@ app.get('*', (req, res) => {
 
 if (CLUSTER === "true") {
     if (cluster.isPrimary) {
-        logger.info("num cpus:", numCPUs);
-        logger.info("Primary PID:", process.pid);
+        logger.info(`num cpus: ${numCPUs}`);
+        logger.info(`Primary PID: ${process.pid}`);
         // console.log("num cpus:", numCPUs);
         // console.log("Primary PID:", process.pid);
 
