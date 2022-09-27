@@ -4,8 +4,6 @@ const compression = require("compression");
 const { routerLogin, routerCart } = require("./src/routes")
 const cluster = require("cluster")
 const numCPUs = require("os").cpus().length
-
-
 // VISTAS -----------------------
 const handlebars = require("express-handlebars")
 const path = require("path")
@@ -23,10 +21,9 @@ const { Strategy } = require("passport-local")
 const LocalStrategy = Strategy
 const bcrypt = require("bcrypt")
 // CONFIG ----------------------
-const { URI, CLUSTER, MAIL } = require("./src/config")
+const { URI, CLUSTER } = require("./src/config")
 // LOGS
 const logger = require("./src/logs/logger.js")
-
 
 const app = express()
 //------------------- MIDDLEWARES -------------------//
@@ -52,7 +49,6 @@ app.set("view engine", ".hbs");
 // SESSION
 app.use(cookieParser('secret'))
 app.use(session({
-
     store: MongoStore.create({
         mongoUrl: URI,
         mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
@@ -97,8 +93,6 @@ passport.deserializeUser(async (id, done) => {
 app.use("/", routerLogin)
 app.use("/cart", routerCart)
 
-
-
 // RUTA NO IMPLEMENTADA
 
 app.get('*', (req, res) => {
@@ -121,8 +115,8 @@ if (CLUSTER === "true") {
             cluster.fork();
         }
         cluster.on("exit", (worker) => {
-            logger.info(`Worket finalizó ${new Date().toLocaleString()}`);
-            // console.log(`Worket finalizó ${new Date().toLocaleString()}`);
+            logger.info(`Worker finalizó ${new Date().toLocaleString()}`);
+            // console.log(`Worker finalizó ${new Date().toLocaleString()}`);
             cluster.fork();
         });
     } else {
@@ -149,8 +143,3 @@ if (CLUSTER === "true") {
     // server.on("error", error => console.log(`Error en servidor: ${error}`))
     server.on("error", error => logger.error(`Error en servidor: ${error}`))
 }
-
-
-
-
-

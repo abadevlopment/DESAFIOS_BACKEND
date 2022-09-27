@@ -11,6 +11,10 @@ const datosFaker = require("../mocks/index")
 // LOGS
 const logger = require('../logs/logger.js')
 
+const emailServerCart = require("../mail/mailCart.js")
+const userMessage = require("../message/userMessage.js")
+const userMessageWsp = require("../message/userMessageWsp.js")
+
 // MONGOOSE
 
 mongoose
@@ -61,9 +65,13 @@ routerCart.post("/addToCart/:id", (req, res) => {
     )
 })
 
-routerCart.post("/buyOut", (req, res) => {
+routerCart.post("/buyOut", async (req, res) => {
     logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     const userId = req.user._id.valueOf()
+    const userPhone = req.user.phone
+
+    const userCart = await CartDB.findOne({ userId: userId }).lean()
+    const cartProducts = userCart.products
 
     CartDB.findOneAndDelete(
         { userId: userId },
@@ -72,6 +80,9 @@ routerCart.post("/buyOut", (req, res) => {
                 logger.error(err)
                 res.send(err);
             } else {
+                userMessage(userPhone)
+                userMessageWsp(req.user, cartProducts)
+                emailServerCart(req.user, cartProducts)
                 logger.info("carrito registrado");
                 logger.info(result)
                 // console.log("carrito registrado");

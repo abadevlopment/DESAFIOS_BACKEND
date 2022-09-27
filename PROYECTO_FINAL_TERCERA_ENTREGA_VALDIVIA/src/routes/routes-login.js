@@ -12,6 +12,8 @@ const datosFaker = require("../mocks/index")
 // LOGS
 const logger = require("../logs/logger.js")
 
+const emailServer = require("../mail/mail.js")
+
 
 // MONGOOSE
 
@@ -31,6 +33,7 @@ routerLogin.get("/", (req, res) => {
     if (req.user) {
         res.redirect("/home")
     } else {
+        // console.log(datosFaker);
         res.render("ListaProductos", {
             Products: datosFaker,
             ProductsQty: datosFaker.length
@@ -76,6 +79,8 @@ routerLogin.post("/register", (req, res) => {
                 age,
                 phone: fullPhone
             })
+            // console.log(newUser);
+            emailServer(newUser)
             await newUser.save()
             res.redirect("/login")
         }
