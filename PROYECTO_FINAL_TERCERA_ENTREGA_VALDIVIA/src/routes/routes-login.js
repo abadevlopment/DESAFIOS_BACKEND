@@ -29,7 +29,7 @@ const routerLogin = Router()
 // RUTAS
 
 routerLogin.get("/", (req, res) => {
-    logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
+    // logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     if (req.user) {
         res.redirect("/home")
     } else {
@@ -42,27 +42,27 @@ routerLogin.get("/", (req, res) => {
 })
 
 routerLogin.get("/login", (req, res) => {
-    logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
+    // logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     res.render("login")
 })
 
 routerLogin.post("/login", passport.authenticate("local", { failureRedirect: "/login-error" }), (req, res) => {
-    logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
+    // logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     res.redirect("/home")
 })
 
 routerLogin.get("/login-error", (req, res) => {
-    logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
+    // logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     res.render("login-error")
 })
 
 routerLogin.get("/register", (req, res) => {
-    logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
+    // logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     res.render("registro")
 })
 
 routerLogin.post("/register", (req, res) => {
-    logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
+    // logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     const { username, password, name, adress, age } = req.body
     const fullPhone = req.body.full_phone[0]
     UserDB.findOne({ username }, async (err, user) => {
@@ -88,7 +88,7 @@ routerLogin.post("/register", (req, res) => {
 })
 
 routerLogin.get("/home", async (req, res) => {
-    logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
+    // logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     if (req.user) {
         const userData = await UserDB.findById(req.user._id).lean()
         const userId = req.user._id.valueOf()
@@ -116,7 +116,7 @@ routerLogin.get("/home", async (req, res) => {
 })
 
 routerLogin.get("/logout", (req, res, next) => {
-    logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
+    // logger.info(`Petición recibida: ruta: '${req.url}', método: ${req.method}`)
     req.logout(function (err) {
         if (err) {
             return next(err);
