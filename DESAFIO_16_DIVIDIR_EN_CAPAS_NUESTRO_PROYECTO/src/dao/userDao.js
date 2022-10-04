@@ -32,11 +32,19 @@ async function saveUser(data1, data2) {
     })
 }
 
-async function userInfo(data) {
-    const user = await UserDB.findById(data).lean()
+function userInfo(data) {
+    const user = UserDB.findById(data).lean()
     return user
 }
+// async function userInfo(data) {
+//     const user = await UserDB.findById(data).lean()
+//     return user
+// }
 
+// function userId(data) {
+//     const id = data.valueOf()
+//     return id
+// }
 async function userId(data) {
     const id = data.valueOf()
     return id

@@ -2,7 +2,9 @@ import {
     // USER
     saveUser, userInfo, userId,
     // CART
-    findCart, cartProducts, createCart, saveCart
+    findCart, cartProducts, createCart, saveCart, toCart, deleteCart,
+    // PRODUCT
+    getAllProducts, findProduct
 } from "../dao/index.js"
 
 
@@ -42,9 +44,35 @@ function userProducts(data) {
     return userProducts
 }
 
+async function addToCart(data1, data2, data3) {
+    const setUserId = await userId(data1)
+    const prodToAdd = await findProduct(data2)
+    await toCart(setUserId, prodToAdd, data3)
+}
+
+async function buyoutCart(data) {
+    await deleteCart(data)
+}
+
+
+// PRODUCT
+async function allProducts() {
+    const products = await getAllProducts()
+    // console.log("service products:");
+    // console.log(products);
+    return products
+}
+
+async function findAProduct(data) {
+    const product = await findProduct(data)
+    return product
+}
+
 export {
     // USER
     registerUser, findUserInfo, findUserId,
     // CART
-    createFindCart, userProducts
+    createFindCart, userProducts, addToCart, buyoutCart,
+    // PRODUCT
+    allProducts, findAProduct
 }

@@ -1,18 +1,8 @@
 import express from "express"
+import { getAllProducts } from "../controller/index.js"
 
 const routerBase = express.Router()
 
-routerBase.get("/", (req, res) => {
-    if (req.user) {
-        res.redirect("/user/home")
-    } else {
-        // console.log(datosFaker);
-        res.render("index", {
-            // Products: datosFaker,
-            // ProductsQty: datosFaker.length
-        })
-    }
-
-})
+routerBase.get("/", getAllProducts)
 
 export { routerBase }
