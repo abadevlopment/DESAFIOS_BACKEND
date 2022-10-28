@@ -1,0 +1,115 @@
+<div class="container-fluid p-3 bg-secondary">
+	<div
+		class="px-5 py-3 bg-light rounded-5 text-center border border-primary"
+	>
+		<h3>Registrarse</h3>
+	</div>
+	<div class="p-5 bg-light rounded-5">
+		<div class="container-fluid p-5 bg-info rounded-5 row">
+			<form
+				class="form"
+				action="/user/register"
+				method="post"
+				role="form"
+				autocomplete="off"
+			>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						id="correo"
+						name="username"
+						placeholder="correo"
+						class="form-control"
+						type="email"
+						autofocus
+						required
+					/>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						id="password"
+						name="password"
+						placeholder="password"
+						class="form-control"
+						type="password"
+						required
+					/>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						id="nombre"
+						name="name"
+						placeholder="nombre"
+						class="form-control"
+						type="text"
+						required
+					/>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						id="direccion"
+						name="adress"
+						placeholder="dirección"
+						class="form-control"
+						type="text"
+						required
+					/>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						id="edad"
+						name="age"
+						placeholder="edad"
+						class="form-control"
+						type="number"
+						required
+					/>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						id="phone"
+						name="phone"
+						class="form-control"
+						type="tel"
+						required
+					/>
+					<input
+						type="hidden"
+						name="full_phone"
+					/>
+					<span id="valid-msg" class="hide">✓
+						Valid</span>
+					<span
+						id="error-msg"
+						class="hide"
+					></span>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					{{! <input
+						class="btn btn-success my-3"
+						type="submit"
+						value="Registrarse"
+					/> }}
+					<button
+						id="botonSubmit"
+						class="btn btn-success my-3"
+						type="submit"
+					>Registrarse
+					</button>
+				</div>
+				{{! <div class="form-group px-5 mx-5 my-1">
+					<button
+						class="btn btn-light my-3"
+						onclick="location.href = '/login'"
+					>Iniciar Sesión</button>
+				</div> }}
+				<div class="form-group px-5 mx-5 my-1">
+					<button
+						class="btn btn-light my-3"
+						onclick="location.href = '/'"
+					>Inicio</button>
+				</div>
+			</form>
+			<hr />
+		</div>
+	</div>
+</div>
