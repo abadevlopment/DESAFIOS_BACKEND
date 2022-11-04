@@ -1,0 +1,136 @@
+<div class="container-fluid p-3 bg-secondary">
+	<div class="p-5 bg-light rounded-5 border border-primary">
+		<div class="row">
+			<div
+				class="col border border-primary text-center rounded-5 fw-bold"
+			>
+				<h3>Bienvenido {{Name}}</h3>
+			</div>
+			<div class="col text-center">
+				<div class="row">
+					<div class="col text-center">
+						{{! Extra }}
+					</div>
+					<div class="col text-center">
+						{{! <button
+							class="btn btn-success"
+							onclick="location.href='/cart'"
+						>CARRITO</button> }}
+					</div>
+					<div class="col text-center">
+						<button
+							class="btn btn-danger"
+							onclick="location.href='/user/logout'"
+						>LOGOUT</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-5 bg-light rounded-5">
+		<div class="row">
+			<div
+				class="col-8 container-fluid p-5 bg-primary rounded-5 row"
+			>
+				<h2>Listado de productos</h2>
+				<br />
+				    {{#if ProductsQty}}
+
+				{{#each Products}}
+					<div
+						class="card m-3"
+						style="width: 14rem;"
+					>
+						<img
+							src={{this.thumbnail}}
+							class="card-img-top"
+							alt="..."
+						/>
+						<div class="card-body">
+							<h5
+								class="card-title"
+							>{{this.title}}</h5>
+							<p
+								class="card-text"
+							>S/.{{this.price}}</p>
+							{{!-- <p
+								class="card-text"
+							>Id:{{this.id}}</p> --}}
+							<p
+								class="card-text text-center"
+							>
+								<form
+									class="form"
+									action="../../cart/addToCart/{{this.id}}"
+									method="POST"
+									role="form"
+									autocomplete="off"
+								>
+									<input
+										class="btn btn-success"
+										type="submit"
+										value="Agregar al carrito"
+									/>
+								</form>
+							</p>
+						</div>
+					</div>
+				{{/each}}
+				    {{else}}
+      <h2 style={color: "red"}>No se encontraron productos</h2>
+    {{/if}}
+
+			</div>
+			<div
+				class="col-4 container-fluid p-5 bg-success rounded-5"
+			>
+				<h2>Carrito de compras</h2>
+				<br />
+				{{#if CartProductsQty}}
+					<table class="table">
+						<thead>
+							<tr>
+								<th
+									scope="col"
+								>Nombre</th>
+								<th
+									scope="col"
+								>Precio</th>
+								<th
+									scope="col"
+								>Imagen</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each CartProducts}}
+								<tr>
+									<td
+									>{{this.title}}</td>
+									<td
+									>S/.{{this.price}}</td>
+									<td>
+										<img
+											height="50px"
+											src={{this.thumbnail}}
+											alt="img product"
+										/>
+									</td>
+								</tr>
+							{{/each}}
+						</tbody>
+					</table>
+					<button
+						class="btn btn-light"
+						onclick="location.href='/cart'"
+					>Finalizar compra</button>
+
+				{{else}}
+					<h2 class="text-red">No se encontraron
+						productos</h2>
+				{{/if}}
+				<hr />
+
+			</div>
+		</div>
+	</div>
+</div>

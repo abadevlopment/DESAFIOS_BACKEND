@@ -1,0 +1,60 @@
+<div class="container-fluid p-3 bg-secondary">
+	<div
+		class="px-5 py-3 bg-light rounded-5 text-center border border-primary"
+	>
+		<h3>Inicio de sesión</h3>
+	</div>
+	<div class="p-5 bg-light rounded-5">
+		<div class="container-fluid p-5 bg-primary rounded-5 row">
+			<form
+				class="form"
+				action="/user/login"
+				method="post"
+				role="form"
+				autocomplete="off"
+			>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						id="correo"
+						name="username"
+						placeholder="correo"
+						class="form-control"
+						type="email"
+						autofocus
+						required
+					/>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						id="password"
+						name="password"
+						placeholder="password"
+						class="form-control"
+						type="password"
+						required
+					/>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<input
+						class="btn btn-success my-3"
+						type="submit"
+						value="Iniciar Sesión"
+					/>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<button
+						class="btn btn-warning my-3"
+						onclick="location.href = '/user/register'"
+					>Registrarse</button>
+				</div>
+				<div class="form-group px-5 mx-5 my-1">
+					<button
+						class="btn btn-success my-3"
+						onclick="location.href = '/'"
+					>Inicio</button>
+				</div>
+			</form>
+			<hr />
+		</div>
+	</div>
+</div>

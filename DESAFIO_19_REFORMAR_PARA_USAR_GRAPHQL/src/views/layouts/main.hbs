@@ -1,0 +1,91 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"
+			integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"
+			integrity="sha512-+gShyB8GWoOiXNwOlBaYXdLTiZt10Iy6xjACGadpqMs20aJOoh+PJt3bwUVA6Cefe7yF7vblX6QwyXZiVwTWGg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"
+		></script>
+		{{! <script src="/socket.io/socket.io.js"></script> }}
+		<title>PROYECTO FINAL</title>
+	</head>
+	<body>
+		{{{body}}}
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+		></script>
+	</body>
+	<script>
+		const phoneInputField = document.querySelector("#phone");
+		window.intlTelInput(phoneInputField, { 
+			hiddenInput:"full_phone", 
+			utilsScript:
+		"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+		});
+		var input = document.querySelector("#phone"),
+		errorMsg = document.querySelector("#error-msg"),
+		validMsg = document.querySelector("#valid-msg");
+
+		// here, the index maps to the error code returned from getValidationError - see readme
+		var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+		// initialise plugin
+		var iti = window.intlTelInput(input, {
+		utilsScript: "../../build/js/utils.js?1638200991544"
+		});
+
+		var reset = function() {
+		input.classList.remove("error");
+		errorMsg.innerHTML = "";
+		errorMsg.classList.add("hide");
+		validMsg.classList.add("hide");
+		};
+
+		// on blur: validate
+		input.addEventListener('blur', function() {
+		reset();
+		if (input.value.trim()) {
+			if (iti.isValidNumber()) {
+			validMsg.classList.remove("hide");
+			} else {
+			input.classList.add("error");
+			var errorCode = iti.getValidationError();
+			errorMsg.innerHTML = errorMap[errorCode];
+			errorMsg.classList.remove("hide");
+			}
+		}
+		});
+
+		// on keyup / change flag: reset
+		input.addEventListener('change', reset);
+		input.addEventListener('keyup', reset);
+	</script>
+</html>
